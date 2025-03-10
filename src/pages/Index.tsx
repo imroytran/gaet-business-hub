@@ -9,21 +9,18 @@ import PartnerSection from '../components/home/PartnerSection';
 import NewsSection from '../components/home/NewsSection';
 import ContactSection from '../components/home/ContactSection';
 import Footer from '../components/layout/Footer';
-import { useTheme } from '@/contexts/ThemeContext';
 
 const Index = () => {
-  const { language } = useTheme();
-
   useEffect(() => {
     // Scroll to top when the page loads
     window.scrollTo(0, 0);
 
-    // Update page title based on language
-    document.title = language === 'vi' ? 'GAET - Tổng Công Ty Đa Ngành' : 'GAET - Multisector Corporation';
-  }, [language]);
+    // Update page title
+    document.title = 'GAET - Tổng Công Ty Đa Ngành';
+  }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden dark:bg-gray-900">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       
       <main>
