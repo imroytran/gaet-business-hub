@@ -7,37 +7,44 @@ const businessAreas = [
   {
     id: 1,
     title: "Xuất nhập khẩu",
-    description: "Hoạt động xuất nhập khẩu đa dạng sản phẩm sang nhiều thị trường quốc tế.",
+    description: "Triển khai mua sắm, trang bị cho quân đội máy móc, vật tư trang thiết bị, lắp đặt các dây chuyền sản xuất công nghiệp hiện đại, đảm bảo các yêu cầu kỹ thuật.",
     image: "https://cdn.gpteng.co/resources/6727bae6-fb8d-465c-a993-8dce41dced45/import-export.jpg",
     url: "/import-export"
   },
   {
     id: 2,
-    title: "Vật tư & Thiết bị công nghệ",
-    description: "Cung cấp vật tư, thiết bị và dây chuyền công nghệ phục vụ sản xuất quốc phòng và kinh tế.",
-    image: "https://cdn.gpteng.co/resources/6727bae6-fb8d-465c-a993-8dce41dced45/equipment.jpg",
-    url: "/equipment"
-  },
-  {
-    id: 3,
     title: "Vật liệu nổ công nghiệp",
-    description: "Sản xuất, xuất nhập khẩu, kinh doanh vật liệu nổ công nghiệp và dịch vụ nổ mìn chuyên nghiệp.",
+    description: "Đầu mối duy nhất của Bộ Quốc phòng được giao nhiệm vụ xuất nhập khẩu, cung ứng vật liệu nổ công nghiệp cho các ngành xây dựng, giao thông, khai khoáng...",
     image: "https://cdn.gpteng.co/resources/6727bae6-fb8d-465c-a993-8dce41dced45/explosives.jpg",
     url: "/explosives"
   },
   {
-    id: 4,
+    id: 3,
     title: "Đào tạo nghề & XNK Lao động",
-    description: "Đào tạo nguồn nhân lực chất lượng cao và cung cấp dịch vụ xuất khẩu lao động uy tín.",
+    description: "Mở các khoá đào tạo nghề như: may công nghiệp, hàn, nguội cơ khí, mộc, cốp pha, sắt xây dựng... cung ứng hàng nghìn lao động được đào tạo sang thị trường các nước.",
     image: "https://cdn.gpteng.co/resources/6727bae6-fb8d-465c-a993-8dce41dced45/training.jpg",
     url: "/vocational-training"
   },
   {
-    id: 5,
+    id: 4,
     title: "Sản xuất quốc phòng",
-    description: "Liên doanh sản xuất nguyên liệu và sản phẩm phục vụ công nghiệp quốc phòng.",
+    description: "Liên doanh sản xuất nguyên liệu và sản phẩm phục vụ công nghiệp quốc phòng, đi đầu trong lĩnh vực chuyển giao công nghệ và xuất khẩu hàng công nghiệp quốc phòng.",
     image: "https://cdn.gpteng.co/resources/6727bae6-fb8d-465c-a993-8dce41dced45/defense.jpg",
     url: "/defense-production"
+  },
+  {
+    id: 5,
+    title: "Vận tải",
+    description: "Hoàn thành xuất sắc nhiệm vụ vận tải thuốc nổ công nghiệp, hàng hoá dân dụng và chuyên dụng với đoàn xe tải đa chủng loại trên khắp các nẻo đường.",
+    image: "https://cdn.gpteng.co/resources/6727bae6-fb8d-465c-a993-8dce41dced45/equipment.jpg",
+    url: "/transportation"
+  },
+  {
+    id: 6,
+    title: "Sản xuất công nghiệp",
+    description: "Hệ thống các xí nghiệp sản xuất các sản phẩm như: sản phẩm gỗ và composite, sản phẩm cơ khí, hòm hộp, bồn Inox, bao bì catton, giấy grap...",
+    image: "https://cdn.gpteng.co/resources/6727bae6-fb8d-465c-a993-8dce41dced45/equipment.jpg",
+    url: "/industrial-production"
   }
 ];
 
@@ -53,8 +60,8 @@ const BusinessSection: React.FC = () => {
             Chúng tôi cung cấp các dịch vụ đa dạng
           </h2>
           <p className="text-gray-600">
-            GAET hoạt động đa ngành, đa lĩnh vực với hệ thống các công ty thành viên chuyên biệt, 
-            đáp ứng đầy đủ nhu cầu của khách hàng với những giải pháp toàn diện và chuyên nghiệp.
+            Trong quá trình hoạt động kinh doanh, GAET đã thu được nhiều thành công nhờ sự nhạy bén, linh hoạt trong cơ chế thị trường.
+            Với các đơn vị xuyên suốt từ Bắc đến Nam tạo sức mạnh tổng hợp khẳng định thương hiệu GAET trong suốt quá trình xây dựng, bảo vệ Tổ quốc và hội nhập kinh tế quốc tế.
           </p>
         </div>
         

@@ -45,8 +45,7 @@ const HeroSection: React.FC = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto opacity-0 animate-slide-up animate-delay-300">
-            Chuyên gia hàng đầu trong lĩnh vực xuất nhập khẩu, cung cấp thiết bị công nghệ, 
-            vật liệu nổ công nghiệp, đào tạo nghề và sản xuất quốc phòng.
+            Doanh nghiệp quốc phòng, luôn đi đầu trong lĩnh vực chuyển giao công nghệ và xuất khẩu hàng công nghiệp quốc phòng.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in animate-delay-500">

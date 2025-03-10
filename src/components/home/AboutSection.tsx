@@ -49,11 +49,11 @@ const AboutSection: React.FC = () => {
               </div>
               
               <p className="text-gray-600 mb-6">
-                Với hơn 30 năm kinh nghiệm, Tổng Công ty GAET đã trở thành một trong những doanh nghiệp hàng đầu tại Việt Nam trong lĩnh vực xuất nhập khẩu, cung cấp vật tư thiết bị công nghệ, vật liệu nổ công nghiệp, đào tạo nghề và phát triển sản xuất công nghiệp quốc phòng.
+                Tổng công ty Kinh tế Kỹ thuật Công nghiệp quốc phòng (GAET) là đơn vị Quốc phòng-An ninh trực thuộc Tổng cục Công nghiệp Quốc phòng, là doanh nghiệp quốc phòng, luôn đi đầu trong lĩnh vực chuyển giao công nghệ và xuất khẩu hàng công nghiệp quốc phòng.
               </p>
               
               <p className="text-gray-600 mb-8">
-                Chúng tôi không ngừng nỗ lực để phát triển bền vững, mở rộng thị trường và nâng cao chất lượng sản phẩm, dịch vụ, đồng thời đóng góp vào sự phát triển kinh tế - xã hội của đất nước.
+                GAET có chức năng kinh doanh đa ngành, đa lĩnh vực: xuất nhập khẩu, kinh doanh vật tư, thiết bị, dây chuyền công nghệ phục vụ sản xuất quốc phòng và kinh tế; xuất nhập khẩu và kinh doanh vật liệu nổ công nghiệp, dịch vụ nổ mìn; đào tạo nghề và xuất nhập khẩu lao động; liên doanh sản xuất nguyên liệu phục vụ sản xuất công nghiệp quốc phòng và nhiều chức năng kinh doanh quan trọng khác.
               </p>
               
               <a href="/about" className="btn-primary inline-flex items-center">

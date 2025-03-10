@@ -33,7 +33,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 mb-1">Trụ sở chính</h4>
-                    <p className="text-gray-600">Số 28 Phố Hàng Bài, Phường Hàng Bài, Quận Hoàn Kiếm, Hà Nội, Việt Nam</p>
+                    <p className="text-gray-600">102 Kim Mã Thượng, Ba Đình, Hà Nội, Việt Nam</p>
                   </div>
                 </div>
                 
@@ -43,8 +43,8 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 mb-1">Email</h4>
-                    <a href="mailto:info@gaet.com.vn" className="text-gaet-600 hover:text-gaet-800 transition-colors">
-                      info@gaet.com.vn
+                    <a href="mailto:contact@gaet.com.vn" className="text-gaet-600 hover:text-gaet-800 transition-colors">
+                      contact@gaet.com.vn
                     </a>
                   </div>
                 </div>
@@ -55,9 +55,14 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 mb-1">Điện thoại</h4>
-                    <a href="tel:+842438257354" className="text-gaet-600 hover:text-gaet-800 transition-colors">
-                      (024) 3825 7354
-                    </a>
+                    <div className="space-y-1">
+                      <a href="tel:+84243832537" className="text-gaet-600 hover:text-gaet-800 transition-colors block">
+                        +84 243 832 5377
+                      </a>
+                      <a href="tel:+84243832771" className="text-gaet-600 hover:text-gaet-800 transition-colors block">
+                        +84 243 832 7710
+                      </a>
+                    </div>
                   </div>
                 </div>
                 

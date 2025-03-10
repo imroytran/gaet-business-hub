@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-bold mb-6">GAET</h3>
             <p className="text-gray-400 mb-6">
-              Tổng công ty GAET - Đơn vị kinh doanh đa ngành, đa lĩnh vực hàng đầu trong lĩnh vực xuất nhập khẩu, cung cấp thiết bị công nghệ và sản xuất quốc phòng.
+              Tổng công ty Kinh tế Kỹ thuật Công nghiệp quốc phòng (GAET) là đơn vị Quốc phòng-An ninh trực thuộc Tổng cục Công nghiệp Quốc phòng, doanh nghiệp hàng đầu trong lĩnh vực xuất nhập khẩu và sản xuất quốc phòng.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-9 h-9 bg-gray-800 hover:bg-gaet-600 rounded-full flex items-center justify-center transition-colors">
@@ -74,12 +74,6 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="/equipment" className="text-gray-400 hover:text-white transition-colors flex items-center">
-                  <ChevronRight size={16} className="mr-2" />
-                  Vật tư & Thiết bị
-                </a>
-              </li>
-              <li>
                 <a href="/explosives" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <ChevronRight size={16} className="mr-2" />
                   Vật liệu nổ công nghiệp
@@ -97,6 +91,12 @@ const Footer: React.FC = () => {
                   Sản xuất quốc phòng
                 </a>
               </li>
+              <li>
+                <a href="/transportation" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                  <ChevronRight size={16} className="mr-2" />
+                  Vận tải
+                </a>
+              </li>
             </ul>
           </div>
           
@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
                   </svg>
                 </div>
                 <div className="text-gray-400">
-                  Số 28 Phố Hàng Bài, Phường Hàng Bài, Quận Hoàn Kiếm, Hà Nội, Việt Nam
+                  102 Kim Mã Thượng, Ba Đình, Hà Nội, Việt Nam
                 </div>
               </li>
               <li className="flex">
@@ -121,8 +121,8 @@ const Footer: React.FC = () => {
                   </svg>
                 </div>
                 <div className="text-gray-400">
-                  <a href="mailto:info@gaet.com.vn" className="hover:text-white transition-colors">
-                    info@gaet.com.vn
+                  <a href="mailto:contact@gaet.com.vn" className="hover:text-white transition-colors">
+                    contact@gaet.com.vn
                   </a>
                 </div>
               </li>
@@ -133,8 +133,26 @@ const Footer: React.FC = () => {
                   </svg>
                 </div>
                 <div className="text-gray-400">
-                  <a href="tel:+842438257354" className="hover:text-white transition-colors">
-                    (024) 3825 7354
+                  <div className="space-y-1">
+                    <a href="tel:+84243832537" className="hover:text-white transition-colors block">
+                      +84 243 832 5377
+                    </a>
+                    <a href="tel:+84243832771" className="hover:text-white transition-colors block">
+                      +84 243 832 7710
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li className="flex">
+                <div className="flex-shrink-0 w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="text-gray-400">
+                  <a href="https://gaet.com.vn" className="hover:text-white transition-colors">
+                    gaet.com.vn
                   </a>
                 </div>
               </li>
