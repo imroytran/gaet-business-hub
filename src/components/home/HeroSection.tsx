@@ -1,8 +1,19 @@
 
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import { scrollToElement } from '@/utils/scroll';
 
 const HeroSection: React.FC = () => {
+  const handleScrollToAbout = (e: React.MouseEvent) => {
+    e.preventDefault();
+    scrollToElement('about', 80);
+  };
+
+  const handleScrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    scrollToElement('contact', 80);
+  };
+
   return (
     <div className="video-container relative">
       <video
@@ -41,6 +52,7 @@ const HeroSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in animate-delay-500">
             <a 
               href="#about" 
+              onClick={handleScrollToAbout}
               className="btn-primary flex items-center justify-center gap-2"
             >
               Tìm hiểu thêm
@@ -48,6 +60,7 @@ const HeroSection: React.FC = () => {
             </a>
             <a 
               href="#contact" 
+              onClick={handleScrollToContact}
               className="btn-secondary"
             >
               Liên hệ ngay
@@ -59,6 +72,7 @@ const HeroSection: React.FC = () => {
       <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
         <a 
           href="#about" 
+          onClick={handleScrollToAbout}
           className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/30 transition-colors"
           aria-label="Scroll Down"
         >

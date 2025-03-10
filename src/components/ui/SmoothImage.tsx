@@ -7,6 +7,7 @@ interface SmoothImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
   className?: string;
   imgClassName?: string;
+  placeholderColor?: string;
 }
 
 const SmoothImage: React.FC<SmoothImageProps> = ({
@@ -14,10 +15,12 @@ const SmoothImage: React.FC<SmoothImageProps> = ({
   alt,
   className,
   imgClassName,
+  placeholderColor = 'bg-slate-200',
   ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [hasError, setHasError] = useState(false);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,6 +45,15 @@ const SmoothImage: React.FC<SmoothImageProps> = ({
     };
   }, [props.id]);
   
+  const handleError = () => {
+    console.error(`Failed to load image: ${src}`);
+    setHasError(true);
+  };
+
+  const handleLoad = () => {
+    setIsLoaded(true);
+  };
+  
   return (
     <div
       id={`image-${props.id}`}
@@ -50,7 +62,7 @@ const SmoothImage: React.FC<SmoothImageProps> = ({
         className
       )}
     >
-      {isInView && (
+      {isInView && !hasError && (
         <img
           src={src}
           alt={alt}
@@ -59,12 +71,18 @@ const SmoothImage: React.FC<SmoothImageProps> = ({
             isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-md scale-105',
             imgClassName
           )}
-          onLoad={() => setIsLoaded(true)}
+          onLoad={handleLoad}
+          onError={handleError}
           {...props}
         />
       )}
-      {(!isLoaded || !isInView) && (
-        <div className="absolute inset-0 bg-slate-200 animate-pulse" />
+      {(!isLoaded || !isInView || hasError) && (
+        <div className={cn("absolute inset-0 animate-pulse", placeholderColor)} />
+      )}
+      {hasError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+          <span className="text-sm text-gray-500">{alt}</span>
+        </div>
       )}
     </div>
   );
