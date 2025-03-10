@@ -41,7 +41,7 @@ const HeroSection: React.FC = () => {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 opacity-0 animate-slide-down animate-delay-100">
-            Đối tác toàn cầu,<br /> giải pháp đột phá
+            Lấy tín tạo tầm
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto opacity-0 animate-slide-up animate-delay-300">

@@ -64,7 +64,7 @@ const Navbar = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 lg:px-10',
         scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-md py-2'
+          ? 'bg-gaet-700/95 backdrop-blur-md shadow-md py-2'
           : 'bg-transparent py-6'
       )}
     >
@@ -75,12 +75,16 @@ const Navbar = () => {
           className="flex items-center"
           aria-label="GAET Logo"
         >
-          <h1 className={cn(
-            'font-bold transition-all duration-300',
-            scrolled ? 'text-gaet-700 text-2xl' : 'text-white text-3xl',
+          <div className={cn(
+            'transition-all duration-300 h-auto',
+            scrolled ? 'w-28' : 'w-36',
           )}>
-            GAET
-          </h1>
+            <img 
+              src="https://gaet.com.vn/App_Themes/Images/LogoGaetWhite.png" 
+              alt="GAET Logo" 
+              className="w-full h-auto"
+            />
+          </div>
         </Link>
 
         {/* Desktop navigation */}
@@ -90,8 +94,8 @@ const Navbar = () => {
               <a
                 href={item.href}
                 className={cn(
-                  'font-medium text-sm transition-colors duration-200 hover:text-gaet-500 flex items-center gap-1',
-                  scrolled ? 'text-gray-700' : 'text-white'
+                  'font-medium text-sm transition-colors duration-200 hover:text-gaet-300 flex items-center gap-1',
+                  'text-white'
                 )}
               >
                 {item.label}
@@ -127,23 +131,23 @@ const Navbar = () => {
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {mobileMenuOpen ? (
-            <X size={24} className={scrolled ? 'text-gray-700' : 'text-white'} />
+            <X size={24} className="text-white" />
           ) : (
-            <Menu size={24} className={scrolled ? 'text-gray-700' : 'text-white'} />
+            <Menu size={24} className="text-white" />
           )}
         </button>
       </div>
 
       {/* Mobile navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg min-h-screen animate-fade-in">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-gaet-700 shadow-lg min-h-screen animate-fade-in">
           <div className="px-4 py-2 space-y-1">
             {navigation.map((item) => (
               <div key={item.label}>
                 {item.children ? (
                   <div>
                     <button
-                      className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-gray-700 hover:bg-gaet-50 hover:text-gaet-600 rounded-md"
+                      className="w-full flex items-center justify-between px-4 py-3 text-base font-medium text-white hover:bg-gaet-600 hover:text-white rounded-md"
                       onClick={() => toggleSubmenu(item.label)}
                     >
                       {item.label}
@@ -161,7 +165,7 @@ const Navbar = () => {
                           <Link
                             key={child.label}
                             to={child.href}
-                            className="block px-4 py-2 text-sm text-gray-500 hover:bg-gaet-50 hover:text-gaet-600 rounded-md"
+                            className="block px-4 py-2 text-sm text-white/80 hover:bg-gaet-600 hover:text-white rounded-md"
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             {child.label}
@@ -173,7 +177,7 @@ const Navbar = () => {
                 ) : (
                   <a
                     href={item.href}
-                    className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gaet-50 hover:text-gaet-600 rounded-md"
+                    className="block px-4 py-3 text-base font-medium text-white hover:bg-gaet-600 hover:text-white rounded-md"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
