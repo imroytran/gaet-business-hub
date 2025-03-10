@@ -2,8 +2,12 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { scrollToElement } from '@/utils/scroll';
+import { useTheme } from '@/contexts/ThemeContext';
+import { getTranslation } from '@/utils/translation';
 
 const HeroSection: React.FC = () => {
+  const { language } = useTheme();
+
   const handleScrollToAbout = (e: React.MouseEvent) => {
     e.preventDefault();
     scrollToElement('about', 80);
@@ -30,22 +34,24 @@ const HeroSection: React.FC = () => {
         Your browser does not support the video tag.
       </video>
       
-      <div className="video-overlay"></div>
+      <div className="video-overlay dark:bg-black/60"></div>
       
       <div className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-4 inline-block">
             <span className="text-white bg-gaet-500/80 backdrop-blur-sm text-xs font-semibold px-3 py-1 rounded-full">
-              TỔNG CÔNG TY GAET
+              {language === "vi" ? "TỔNG CÔNG TY GAET" : "GAET CORPORATION"}
             </span>
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 opacity-0 animate-slide-down animate-delay-100">
-            Lấy tín tạo tầm
+            {getTranslation("slogan", language)}
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto opacity-0 animate-slide-up animate-delay-300">
-            Doanh nghiệp quốc phòng, luôn đi đầu trong lĩnh vực chuyển giao công nghệ và xuất khẩu hàng công nghiệp quốc phòng.
+            {language === "vi" 
+              ? "Doanh nghiệp quốc phòng, luôn đi đầu trong lĩnh vực chuyển giao công nghệ và xuất khẩu hàng công nghiệp quốc phòng."
+              : "A defense enterprise, always at the forefront of technology transfer and export of defense industry products."}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in animate-delay-500">
@@ -54,15 +60,15 @@ const HeroSection: React.FC = () => {
               onClick={handleScrollToAbout}
               className="btn-primary flex items-center justify-center gap-2"
             >
-              Tìm hiểu thêm
+              {getTranslation("learnMore", language)}
               <ChevronRight size={16} />
             </a>
             <a 
               href="#contact" 
               onClick={handleScrollToContact}
-              className="btn-secondary"
+              className="btn-secondary dark:text-white dark:border-white"
             >
-              Liên hệ ngay
+              {getTranslation("contactNow", language)}
             </a>
           </div>
         </div>

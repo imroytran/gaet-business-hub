@@ -102,11 +102,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-gaet-600 hover:bg-gaet-700 text-white font-medium rounded-lg px-6 py-3 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg;
+    @apply bg-gaet-600 hover:bg-gaet-700 text-white font-medium rounded-lg px-6 py-3 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg dark:bg-gaet-700 dark:hover:bg-gaet-800;
   }
 
   .btn-secondary {
-    @apply bg-transparent hover:bg-gaet-100 text-gaet-700 font-medium border border-gaet-600 rounded-lg px-6 py-3 transition-all duration-300 ease-in-out transform hover:-translate-y-1;
+    @apply bg-transparent hover:bg-gaet-100 text-gaet-700 font-medium border border-gaet-600 rounded-lg px-6 py-3 transition-all duration-300 ease-in-out transform hover:-translate-y-1 dark:hover:bg-gray-800 dark:text-gray-200 dark:border-gray-400;
   }
 
   .header-underline {
@@ -114,15 +114,15 @@
   }
 
   .header-underline::after {
-    @apply content-[""] absolute -bottom-2 left-0 w-16 h-1 bg-gaet-500 rounded-full;
+    @apply content-[""] absolute -bottom-2 left-0 w-16 h-1 bg-gaet-500 rounded-full dark:bg-gaet-400;
   }
 
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-white/20;
+    @apply bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-white/20 dark:bg-gray-800/80 dark:border-gray-700/30;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gaet-600 to-gaet-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gaet-600 to-gaet-400 dark:from-gaet-400 dark:to-gaet-300;
   }
 
   .section-padding {
@@ -155,6 +155,10 @@
 
   .animate-delay-1000 {
     animation-delay: 1000ms;
+  }
+  
+  .engaging-interactive {
+    @apply transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer;
   }
 }
 
@@ -194,4 +198,34 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+/* Interactive elements for engaging design */
+.interactive-box {
+  @apply transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+}
+
+.pulse-effect {
+  @apply relative;
+}
+
+.pulse-effect::after {
+  @apply content-[''] absolute inset-0 rounded-lg bg-gaet-500/20 z-0 animate-pulse;
+}
+
+.link-underline {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gaet-500 hover:after:w-full after:transition-all after:duration-300;
+}
+
+.card-hover-effect {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+}
+
+/* Dark mode specific styles */
+.dark .glass-card {
+  @apply bg-gray-800/70 border-gray-700/30;
+}
+
+.dark .video-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
 }
