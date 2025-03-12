@@ -2,46 +2,53 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, Globe } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface NavItem {
   label: string;
   href: string;
-  children?: NavItem[];
+  translationKey: string;
+  children?: {
+    label: string;
+    href: string;
+    translationKey: string;
+  }[];
 }
-
-const navigation: NavItem[] = [
-  { label: 'Trang chủ', href: '/' },
-  { 
-    label: 'Giới thiệu', 
-    href: '#about',
-    children: [
-      { label: 'Lịch sử phát triển', href: '/history' },
-      { label: 'Tầm nhìn & Sứ mệnh', href: '/vision' },
-      { label: 'Cơ cấu tổ chức', href: '/organization' },
-      { label: 'Ban lãnh đạo', href: '/leadership' },
-    ]
-  },
-  { 
-    label: 'Lĩnh vực kinh doanh', 
-    href: '#business',
-    children: [
-      { label: 'Xuất nhập khẩu', href: '/import-export' },
-      { label: 'Vật tư & Thiết bị công nghệ', href: '/equipment' },
-      { label: 'Vật liệu nổ công nghiệp', href: '/explosives' },
-      { label: 'Đào tạo nghề & XNK Lao động', href: '/vocational-training' },
-      { label: 'Sản xuất quốc phòng', href: '/defense-production' },
-    ]
-  },
-  { label: 'Tin tức', href: '#news' },
-  { label: 'Công ty thành viên', href: '#subsidiaries' },
-  { label: 'Liên hệ', href: '#contact' },
-];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+  const { language, setLanguage, t } = useLanguage();
+
+  const navigation: NavItem[] = [
+    { label: t('home'), translationKey: 'home', href: '/' },
+    { 
+      label: t('about'), 
+      translationKey: 'about',
+      href: '#about',
+      children: [
+        { label: t('history'), translationKey: 'history', href: '/history' },
+        { label: t('vision'), translationKey: 'vision', href: '/vision' },
+        { label: t('organization'), translationKey: 'organization', href: '/organization' },
+        { label: t('leadership'), translationKey: 'leadership', href: '/leadership' },
+      ]
+    },
+    { 
+      label: t('business'), 
+      translationKey: 'business',
+      href: '#business',
+      children: [
+        { label: t('business.importExport'), translationKey: 'business.importExport', href: '/import-export' },
+        { label: t('business.explosives'), translationKey: 'business.explosives', href: '/explosives' },
+        { label: t('business.training'), translationKey: 'business.training', href: '/vocational-training' },
+        { label: t('business.defense'), translationKey: 'business.defense', href: '/defense-production' },
+      ]
+    },
+    { label: t('news'), translationKey: 'news', href: '#news' },
+    { label: t('subsidiaries'), translationKey: 'subsidiaries', href: '#subsidiaries' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,6 +64,10 @@ const Navbar = () => {
 
   const toggleSubmenu = (label: string) => {
     setOpenSubmenu(openSubmenu === label ? null : label);
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'vi' ? 'en' : 'vi');
   };
 
   return (
@@ -90,7 +101,7 @@ const Navbar = () => {
         {/* Desktop navigation */}
         <div className="hidden lg:flex items-center space-x-8">
           {navigation.map((item) => (
-            <div key={item.label} className="relative group">
+            <div key={item.translationKey} className="relative group">
               <a
                 href={item.href}
                 className={cn(
@@ -109,7 +120,7 @@ const Navbar = () => {
                   <div className="py-1 grid gap-1">
                     {item.children.map((child) => (
                       <Link
-                        key={child.label}
+                        key={child.translationKey}
                         to={child.href}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gaet-50 rounded-md hover:text-gaet-600 transition-colors"
                       >
@@ -121,21 +132,43 @@ const Navbar = () => {
               )}
             </div>
           ))}
+          
+          {/* Language Toggle */}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 text-white hover:text-gaet-300 transition-colors"
+            aria-label="Toggle Language"
+          >
+            <Globe size={16} />
+            <span className="text-sm font-medium">{language === 'vi' ? 'EN' : 'VI'}</span>
+          </button>
         </div>
 
         {/* Mobile menu button */}
-        <button
-          type="button"
-          className="lg:hidden text-gray-500 hover:text-gray-700 transition-colors"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileMenuOpen ? (
-            <X size={24} className="text-white" />
-          ) : (
-            <Menu size={24} className="text-white" />
-          )}
-        </button>
+        <div className="lg:hidden flex items-center gap-4">
+          {/* Language Toggle */}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 text-white hover:text-gaet-300 transition-colors"
+            aria-label="Toggle Language"
+          >
+            <Globe size={16} />
+            <span className="text-sm font-medium">{language === 'vi' ? 'EN' : 'VI'}</span>
+          </button>
+          
+          <button
+            type="button"
+            className="text-gray-500 hover:text-gray-700 transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? (
+              <X size={24} className="text-white" />
+            ) : (
+              <Menu size={24} className="text-white" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile navigation */}
@@ -143,7 +176,7 @@ const Navbar = () => {
         <div className="lg:hidden absolute top-full left-0 right-0 bg-gaet-700 shadow-lg min-h-screen animate-fade-in">
           <div className="px-4 py-2 space-y-1">
             {navigation.map((item) => (
-              <div key={item.label}>
+              <div key={item.translationKey}>
                 {item.children ? (
                   <div>
                     <button
@@ -163,7 +196,7 @@ const Navbar = () => {
                       <div className="pl-4 space-y-1 animate-fade-in">
                         {item.children.map((child) => (
                           <Link
-                            key={child.label}
+                            key={child.translationKey}
                             to={child.href}
                             className="block px-4 py-2 text-sm text-white/80 hover:bg-gaet-600 hover:text-white rounded-md"
                             onClick={() => setMobileMenuOpen(false)}

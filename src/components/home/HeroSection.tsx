@@ -2,8 +2,11 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { scrollToElement } from '@/utils/scroll';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const handleScrollToAbout = (e: React.MouseEvent) => {
     e.preventDefault();
     scrollToElement('about', 80);
@@ -36,16 +39,16 @@ const HeroSection: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-4 inline-block">
             <span className="text-white bg-gaet-500/80 backdrop-blur-sm text-xs font-semibold px-3 py-1 rounded-full">
-              TỔNG CÔNG TY GAET
+              {t('hero.company')}
             </span>
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 opacity-0 animate-slide-down animate-delay-100">
-            Lấy tín tạo tầm
+            {t('hero.slogan')}
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto opacity-0 animate-slide-up animate-delay-300">
-            Doanh nghiệp quốc phòng, luôn đi đầu trong lĩnh vực chuyển giao công nghệ và xuất khẩu hàng công nghiệp quốc phòng.
+            {t('hero.description')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in animate-delay-500">
@@ -54,7 +57,7 @@ const HeroSection: React.FC = () => {
               onClick={handleScrollToAbout}
               className="btn-primary flex items-center justify-center gap-2"
             >
-              Tìm hiểu thêm
+              {t('hero.learnMore')}
               <ChevronRight size={16} />
             </a>
             <a 
@@ -62,7 +65,7 @@ const HeroSection: React.FC = () => {
               onClick={handleScrollToContact}
               className="btn-secondary"
             >
-              Liên hệ ngay
+              {t('hero.contact')}
             </a>
           </div>
         </div>

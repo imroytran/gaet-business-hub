@@ -1,36 +1,38 @@
 
 import React from 'react';
 import { Globe, Briefcase, Building, Factory } from 'lucide-react';
-import SmoothImage from '../ui/SmoothImage';
-
-const features = [
-  {
-    id: 1,
-    icon: <Globe className="h-6 w-6 text-gaet-600" />,
-    title: "Tầm nhìn toàn cầu",
-    description: "Mở rộng thị trường quốc tế thông qua mạng lưới đối tác chiến lược trên khắp thế giới."
-  },
-  {
-    id: 2,
-    icon: <Briefcase className="h-6 w-6 text-gaet-600" />,
-    title: "Đội ngũ chuyên nghiệp",
-    description: "Đội ngũ nhân sự với kinh nghiệm chuyên môn cao và kiến thức sâu rộng về các lĩnh vực kinh doanh."
-  },
-  {
-    id: 3,
-    icon: <Building className="h-6 w-6 text-gaet-600" />,
-    title: "Đa dạng lĩnh vực",
-    description: "Hoạt động trong nhiều lĩnh vực từ xuất nhập khẩu, công nghiệp quốc phòng đến đào tạo và phát triển nguồn nhân lực."
-  },
-  {
-    id: 4,
-    icon: <Factory className="h-6 w-6 text-gaet-600" />,
-    title: "Công nghệ tiên tiến",
-    description: "Áp dụng công nghệ hiện đại và quy trình tiên tiến vào hoạt động sản xuất, kinh doanh."
-  }
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const AboutSection: React.FC = () => {
+  const { t } = useLanguage();
+  
+  const features = [
+    {
+      id: 1,
+      icon: <Globe className="h-6 w-6 text-gaet-600" />,
+      title: t('feature.globalVision'),
+      description: t('feature.globalVision.desc')
+    },
+    {
+      id: 2,
+      icon: <Briefcase className="h-6 w-6 text-gaet-600" />,
+      title: t('feature.professionalTeam'),
+      description: t('feature.professionalTeam.desc')
+    },
+    {
+      id: 3,
+      icon: <Building className="h-6 w-6 text-gaet-600" />,
+      title: t('feature.diverseFields'),
+      description: t('feature.diverseFields.desc')
+    },
+    {
+      id: 4,
+      icon: <Factory className="h-6 w-6 text-gaet-600" />,
+      title: t('feature.advancedTech'),
+      description: t('feature.advancedTech.desc')
+    }
+  ];
+
   return (
     <section id="about" className="section-padding bg-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-transparent z-10"></div>
@@ -41,23 +43,23 @@ const AboutSection: React.FC = () => {
             <div className="lg:max-w-lg">
               <div className="mb-6">
                 <span className="text-sm font-semibold text-gaet-600 uppercase tracking-wider">
-                  Về chúng tôi
+                  {t('about.title')}
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold mt-2 header-underline">
-                  Tổng Công Ty GAET
+                  {t('about.companyName')}
                 </h2>
               </div>
               
               <p className="text-gray-600 mb-6">
-                Tổng công ty Kinh tế Kỹ thuật Công nghiệp quốc phòng (GAET) là đơn vị Quốc phòng-An ninh trực thuộc Tổng cục Công nghiệp Quốc phòng, là doanh nghiệp quốc phòng, luôn đi đầu trong lĩnh vực chuyển giao công nghệ và xuất khẩu hàng công nghiệp quốc phòng.
+                {t('about.description1')}
               </p>
               
               <p className="text-gray-600 mb-8">
-                GAET có chức năng kinh doanh đa ngành, đa lĩnh vực: xuất nhập khẩu, kinh doanh vật tư, thiết bị, dây chuyền công nghệ phục vụ sản xuất quốc phòng và kinh tế; xuất nhập khẩu và kinh doanh vật liệu nổ công nghiệp, dịch vụ nổ mìn; đào tạo nghề và xuất nhập khẩu lao động; liên doanh sản xuất nguyên liệu phục vụ sản xuất công nghiệp quốc phòng và nhiều chức năng kinh doanh quan trọng khác.
+                {t('about.description2')}
               </p>
               
               <a href="/about" className="btn-primary inline-flex items-center">
-                Tìm hiểu thêm
+                {t('about.learnMore')}
               </a>
             </div>
           </div>
@@ -88,19 +90,19 @@ const AboutSection: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 text-center">
             <div className="opacity-0 animate-fade-in animate-delay-100">
               <div className="text-4xl font-bold text-gaet-700 mb-2">30+</div>
-              <p className="text-gray-600">Năm kinh nghiệm</p>
+              <p className="text-gray-600">{t('stats.experience')}</p>
             </div>
             <div className="opacity-0 animate-fade-in animate-delay-200">
               <div className="text-4xl font-bold text-gaet-700 mb-2">15+</div>
-              <p className="text-gray-600">Công ty thành viên</p>
+              <p className="text-gray-600">{t('stats.subsidiaries')}</p>
             </div>
             <div className="opacity-0 animate-fade-in animate-delay-300">
               <div className="text-4xl font-bold text-gaet-700 mb-2">50+</div>
-              <p className="text-gray-600">Quốc gia đối tác</p>
+              <p className="text-gray-600">{t('stats.partnerCountries')}</p>
             </div>
             <div className="opacity-0 animate-fade-in animate-delay-400">
               <div className="text-4xl font-bold text-gaet-700 mb-2">5000+</div>
-              <p className="text-gray-600">Nhân sự</p>
+              <p className="text-gray-600">{t('stats.personnel')}</p>
             </div>
           </div>
         </div>
