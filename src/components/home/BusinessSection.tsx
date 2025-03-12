@@ -1,3 +1,4 @@
+
 import React from 'react';
 import SmoothImage from '../ui/SmoothImage';
 import { ArrowRight } from 'lucide-react';
@@ -55,11 +56,8 @@ const BusinessSection: React.FC = () => {
     <section id="business" className="section-padding bg-gray-50 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-sm font-semibold text-gaet-600 uppercase tracking-wider">
+          <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-6 text-gaet-700">
             {t('business.title')}
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">
-            {/* Title text removed as requested */}
           </h2>
           <p className="text-gray-600">
             {t('business.description')}
